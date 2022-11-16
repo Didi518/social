@@ -62,7 +62,7 @@ export default function ProfileLeftbar() {
           }}
         >
           <p style={{ color: 'black', marginLeft: 20, fontSize: '14px' }}>
-            Amis
+            Abonnés
           </p>
           <p
             style={{
@@ -97,8 +97,7 @@ export default function ProfileLeftbar() {
               marginLeft: '10px',
             }}
           >
-            Mieux vaut être dépité de ce que je suis, plutôt que d'aimer ce que
-            je ne suis pas
+            追风... There is no one compares with you... 想想哦
           </p>
         </div>
         <button
@@ -115,33 +114,33 @@ export default function ProfileLeftbar() {
         </button>
       </div>
       <div className="notificationsContainer">
-        <h3>Tes Amis</h3>
+        <h3>Suivis</h3>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           <p style={{ marginLeft: 10 }}>Amis</p>
           <p style={{ marginRight: 10, color: '#aaa' }}>Voir tout</p>
         </div>
         <div style={{ display: 'flex', flexWrap: 'wrap', marginLeft: 5 }}>
-          <div style={{ marginLeft: 4 }}>
+          <div style={{ marginLeft: 4, cursor: 'pointer' }}>
             <img src={image2} className="friendImg" alt="avatar ami" />
             <p style={{ marginTop: -2 }}>Samir</p>
           </div>
-          <div style={{ marginLeft: 4 }}>
+          <div style={{ marginLeft: 4, cursor: 'pointer' }}>
             <img src={image1} className="friendImg" alt="avatar ami" />
             <p style={{ marginTop: -2 }}>Aurélien</p>
           </div>
-          <div style={{ marginLeft: 4 }}>
+          <div style={{ marginLeft: 4, cursor: 'pointer' }}>
             <img src={image5} className="friendImg" alt="avatar ami" />
             <p style={{ marginTop: -2 }}>Yohann</p>
           </div>
-          <div style={{ marginLeft: 4 }}>
+          <div style={{ marginLeft: 4, cursor: 'pointer' }}>
             <img src={image3} className="friendImg" alt="avatar ami" />
             <p style={{ marginTop: -2 }}>Samir</p>
           </div>
-          <div style={{ marginLeft: 4 }}>
+          <div style={{ marginLeft: 4, cursor: 'pointer' }}>
             <img src={image6} className="friendImg" alt="avatar ami" />
             <p style={{ marginTop: -2 }}>Aurélien</p>
           </div>
-          <div style={{ marginLeft: 4 }}>
+          <div style={{ marginLeft: 4, cursor: 'pointer' }}>
             <img src={image4} className="friendImg" alt="avatar ami" />
             <p style={{ marginTop: -2 }}>Yohann</p>
           </div>

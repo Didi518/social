@@ -14,9 +14,9 @@
 }
 
 .postImages {
-  width: 450px;
+  width: 500px;
   height: 450px;
-  object-fit: contain;
+  object-fit: cover;
   border-radius: 10px;
 }
 

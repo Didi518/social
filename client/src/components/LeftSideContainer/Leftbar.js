@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './leftbar.css';
 import image from '../Images/Profile.png';
 import image1 from '../Images/image1.jpg';
@@ -7,8 +7,30 @@ import image3 from '../Images/image3.jpg';
 import image4 from '../Images/image4.jpg';
 import image5 from '../Images/image5.jpg';
 import image6 from '../Images/image6.jpg';
+import axios from 'axios';
 
 export default function Leftbar() {
+  const accessToken =
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNzNiZGE3ODVhZWVkMTMxNTUxMTljMCIsInVzZXJuYW1lIjoiVXNlciBPbmUiLCJpYXQiOjE2Njg2MDUzMjh9.I1HiBmFNpoqDmajuDp8jBSFrFx597SQQFT0R0yhzOc8';
+  const [post, setPost] = useState([]);
+
+  useEffect(() => {
+    const getPosts = async () => {
+      try {
+        const res = await axios.get(
+          `http://localhost:8080/api/post/6373bda785aeed13155119c0`,
+          {
+            headers: {
+              token: accessToken,
+            },
+          }
+        );
+        setPost(res.data);
+      } catch (error) {}
+    };
+    getPosts();
+  }, []);
+
   return (
     <div className="leftbar">
       <div className="notificationsContainer">
@@ -113,7 +135,14 @@ export default function Leftbar() {
           <p style={{ color: '#aaa', marginLeft: '40px' }}>Voir tout</p>
         </div>
         <div>
-          <img src={`${image}`} className="exploreImg" alt="Découverte" />
+          {post.map((item) => (
+            <img
+              src={`${item.image}`}
+              className="exploreImg"
+              alt="Découverte"
+              key={item._id}
+            />
+          ))}
           <img src={`${image1}`} className="exploreImg" alt="Découverte" />
           <img src={`${image2}`} className="exploreImg" alt="Découverte" />
           <img src={`${image3}`} className="exploreImg" alt="Découverte" />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './post.css';
 import profileImg from '../Images/Profile.png';
 import likeIcon from '../Images/like.png';
@@ -6,13 +6,36 @@ import commentIcon from '../Images/speech-bubble.png';
 import shareIcon from '../Images/share.png';
 import moreOptions from '../Images/more.png';
 import anotherLikeIcon from '../Images/setLike.png';
+import axios from 'axios';
 
-export default function Post() {
+export default function Post({ post }) {
   const [like, setLike] = useState(likeIcon);
-  const [count, setCount] = useState(10);
+  const [count, setCount] = useState(post.like.length);
   const [Comments, setComments] = useState([]);
   const [commentWritting, setCommentWritting] = useState('');
   const [show, setShow] = useState(false);
+  const [user, setUser] = useState([]);
+  const accessToken =
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNzNiZGE3ODVhZWVkMTMxNTUxMTljMCIsInVzZXJuYW1lIjoiVXNlciBPbmUiLCJpYXQiOjE2Njg2MDUzMjh9.I1HiBmFNpoqDmajuDp8jBSFrFx597SQQFT0R0yhzOc8';
+
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        const res = await axios.get(
+          `http://localhost:8080/api/user/post/${post.user}`,
+          {
+            headers: {
+              token: accessToken,
+            },
+          }
+        );
+        setUser(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getUser();
+  }, [post.user]);
 
   const handleLike = () => {
     if (like === likeIcon) {
@@ -50,9 +73,15 @@ export default function Post() {
       <div className="subPostContainer">
         <div>
           <div style={{ display: 'flex', alignItems: 'center' }}>
-            <img src={profileImg} alt="profil" className="postImg" />
+            {user.profile === '' ? (
+              <img src={profileImg} alt="profil" className="postImg" />
+            ) : (
+              <img src={user.profile} alt="profil" className="postImg" />
+            )}
             <div>
-              <p style={{ marginLeft: '5px', textAlign: 'start' }}>Kevin</p>
+              <p style={{ marginLeft: '5px', textAlign: 'start' }}>
+                {user.username}
+              </p>
               <p
                 style={{
                   fontSize: '11px',
@@ -75,11 +104,10 @@ export default function Post() {
               marginTop: 0,
             }}
           >
-            Lorem ipsum dolor sit amet consectetur adipiscing elit, urna
-            consequat felis vehicula class ultricies....
+            {post.title}
           </p>
           <img
-            src={profileImg}
+            src={post.image}
             alt="illustration du post"
             className="postImages"
           />
@@ -116,7 +144,9 @@ export default function Post() {
                   className="iconsForPost"
                   onClick={handleShow}
                 />
-                <p onClick={handleShow}>100K commentaires</p>
+                <p onClick={handleShow} style={{ marginLeft: '5px' }}>
+                  {post.comments.length} commentaires
+                </p>
               </div>
               <div
                 style={{

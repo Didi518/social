@@ -12,9 +12,9 @@ export default function ProfileRightbar() {
   return (
     <div className="profileRightbar">
       <div className="profileRightContainer">
-        <h3>Demandes d'amis</h3>
+        <h3>Abonnés</h3>
         <div>
-          <div>
+          <div style={{ marginTop: '10px' }}>
             <div
               style={{
                 display: 'flex',
@@ -25,124 +25,38 @@ export default function ProfileRightbar() {
             >
               <img src={image1} alt="ami" className="friendsImg" />
               <p style={{ textAlign: 'start', marginLeft: '10px' }}>
-                Stéphanie veut se lier d'amitier avec toi
+                Stéphanie
               </p>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-              <button
+            <div style={{ marginTop: '10px' }}>
+              <div
                 style={{
-                  paddingLeft: '30px',
-                  paddingRight: '30px',
-                  paddingTop: 5,
-                  paddingBottom: 5,
-                  border: 'none',
-                  backgroundColor: 'black',
-                  color: 'white',
-                  borderRadius: '10px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  marginLeft: 10,
+                  cursor: 'pointer',
                 }}
               >
-                OK
-              </button>
-              <button
-                style={{
-                  paddingLeft: '30px',
-                  paddingRight: '30px',
-                  paddingTop: 5,
-                  paddingBottom: 5,
-                  border: 'none',
-                  backgroundColor: 'black',
-                  color: 'white',
-                  borderRadius: '10px',
-                }}
-              >
-                Non
-              </button>
+                <img src={image5} alt="ami" className="friendsImg" />
+                <p style={{ textAlign: 'start', marginLeft: '10px' }}>
+                  Stéphanie
+                </p>
+              </div>
             </div>
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                marginLeft: 10,
-                cursor: 'pointer',
-              }}
-            >
-              <img src={image5} alt="ami" className="friendsImg" />
-              <p style={{ textAlign: 'start', marginLeft: '10px' }}>
-                Stéphanie veut se lier d'amitier avec toi
-              </p>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-              <button
+            <div style={{ marginTop: '10px' }}>
+              <div
                 style={{
-                  paddingLeft: '30px',
-                  paddingRight: '30px',
-                  paddingTop: 5,
-                  paddingBottom: 5,
-                  border: 'none',
-                  backgroundColor: 'black',
-                  color: 'white',
-                  borderRadius: '10px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  marginLeft: 10,
+                  cursor: 'pointer',
                 }}
               >
-                OK
-              </button>
-              <button
-                style={{
-                  paddingLeft: '30px',
-                  paddingRight: '30px',
-                  paddingTop: 5,
-                  paddingBottom: 5,
-                  border: 'none',
-                  backgroundColor: 'black',
-                  color: 'white',
-                  borderRadius: '10px',
-                }}
-              >
-                Non
-              </button>
-            </div>
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                marginLeft: 10,
-                cursor: 'pointer',
-              }}
-            >
-              <img src={image3} alt="ami" className="friendsImg" />
-              <p style={{ textAlign: 'start', marginLeft: '10px' }}>
-                Stéphanie veut se lier d'amitier avec toi
-              </p>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-              <button
-                style={{
-                  paddingLeft: '30px',
-                  paddingRight: '30px',
-                  paddingTop: 5,
-                  paddingBottom: 5,
-                  border: 'none',
-                  backgroundColor: 'black',
-                  color: 'white',
-                  borderRadius: '10px',
-                }}
-              >
-                OK
-              </button>
-              <button
-                style={{
-                  paddingLeft: '30px',
-                  paddingRight: '30px',
-                  paddingTop: 5,
-                  paddingBottom: 5,
-                  border: 'none',
-                  backgroundColor: 'black',
-                  color: 'white',
-                  borderRadius: '10px',
-                }}
-              >
-                Non
-              </button>
+                <img src={image3} alt="ami" className="friendsImg" />
+                <p style={{ textAlign: 'start', marginLeft: '10px' }}>
+                  Stéphanie
+                </p>
+              </div>
             </div>
           </div>
         </div>

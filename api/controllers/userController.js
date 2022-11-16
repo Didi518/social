@@ -136,11 +136,34 @@ const deleteUser = async (req, res) => {
   }
 };
 
+const postDetails = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) {
+      return res.status(400).json({ message: 'Utilisateur introuvable' });
+    }
+    const {
+      email,
+      password,
+      phoneNumber,
+      followers,
+      followings,
+      createdAt,
+      updatedAt,
+      ...others
+    } = user._doc;
+    res.status(200).json(others);
+  } catch (error) {
+    return res.status(400).json({ message: 'Une erreur est survenue' });
+  }
+};
+
 module.exports = {
   deleteUser,
   followerPosts,
   following,
   login,
+  postDetails,
   newUser,
   updateProfile,
 };

@@ -30,4 +30,6 @@ router.route('/following/:id').put(verifyToken, userController.following);
 
 router.route('/follower/:id').get(verifyToken, userController.followerPosts);
 
+router.route('/post/:id').get(verifyToken, userController.postDetails);
+
 module.exports = router;

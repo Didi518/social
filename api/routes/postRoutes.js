@@ -2,15 +2,13 @@ const router = require('express').Router();
 const postController = require('../controllers/postController');
 const { verifyToken } = require('../middleware/verifyToken');
 
-router
-  .route('/')
-  .post(verifyToken, postController.newPost)
-  .get(verifyToken, postController.postsByUser);
+router.route('/').post(verifyToken, postController.newPost);
 
 router
   .route('/:id')
   .put(verifyToken, postController.updatePost)
-  .delete(verifyToken, postController.deletePost);
+  .delete(verifyToken, postController.deletePost)
+  .get(verifyToken, postController.postsByUser);
 
 router.route('/:id/like').put(verifyToken, postController.likePost);
 
